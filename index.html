@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 200px;
+            background-color: red;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .circleone{
+            width: 448px;
+            height: 196px;
+            background: url('./circle-bg.2eba5f99.png');
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .circletwo{
+            width: 448px;
+            height: 196px;
+            background: url('./circle2.a7ab7242.png');
+            position: absolute;
+            top: 199px;
+            left: 21px;
+            transform-origin: 50% 0;
+            transition: transform 1s ease 0s;
+        }
+        .content{
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .content p{
+            margin: 0;
+            font-size: 15px;
+        }
+        .content span{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="circleone"></div>
+        <div class="circletwo"></div>
+        <div class="content">
+            <span class="creditnum">0</span>
+            <p class="creditText">您的信用值250</p>
+        </div>
+    </div>
+    <script>
+        // 获取Dom2 
+        var circleTwo = document.getElementsByClassName('circletwo')[0]
+        // 获取信用数子
+        var creditNum = document.getElementsByClassName('creditnum')[0]
+        //旋转的初始值
+        var rotateNum = 0
+        // 每隔一秒增加10 
+        setInterval(() => {
+            if(rotateNum == 180){
+                rotateNum = 0
+            }else{
+                rotateNum+=10
+            }
+            // 信用值
+            creditNum.innerText = rotateNum
+            // 设置信用值样式
+            circleTwo.style.transform = 'rotate('+rotateNum+'deg)'
+        }, 1000)
+        
+    </script>
+</body>
+</html>
